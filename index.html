@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <title>Charile blog</title>
+</head>
+<style>
+    @font-face {
+        font-family: LexendDeca;
+        src: url('./font/LexendDeca-Regular.ttf');
+    }
+    body{
+        font-family:LexendDeca, Source Han Sans CN;
+        margin: 0;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .header{
+        height: 440px;
+        width: 100%;
+        background-color: #090909;
+        color: white;
+
+    }
+    .content-header{
+        width: 1000px;
+        margin: 0 auto;
+    }
+    .content{
+        width: 1000px;
+        margin: 0 auto;
+    }
+    .banner{
+        background-image: url("./img/banner.png");
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 440px;
+        background-size: cover;
+    }
+    .banner-left{
+        padding-top: 24px;
+    }
+    .banner-logo {
+        width: 24px;
+        height: 24px;
+        padding-right: 10px;
+    }
+    .logo-wrapper{
+        display: inline-flex;
+        align-items: center;
+        font-size: 18px;
+        line-height: 18px;
+        cursor: pointer;
+    }
+    .banner-title{
+        font-size: 36px;
+        line-height: 54px;
+        margin: 70px 0 24px;
+    }
+    .banner-desc{
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .banner-desc a{
+        color: white;
+    }
+    .banner-desc a:hover{
+        opacity: .75;
+    }
+    .banner-contact{
+        margin-top: 50px;
+        display: inline-block;
+        position: relative;
+    }
+    .btn{
+        width: 138px;
+        height: 48px;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+        background-color: white;
+        color: #000000;
+      }
+    .btn:hover{
+        color: rgba(0,0,0,.7);
+    }
+    .btn img{
+        width: 22px;
+        margin-right: 12px;
+    }
+    .copy-box {
+        position: absolute;
+        margin-left: 12px;
+        left: 138px;
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.25);
+        text-align: center;
+        line-height: 48px;
+        border-radius: 24px;
+        top: 0;
+        opacity: 0;
+        transition: all .3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none
+    }
+    .copy-box img{
+        width: 18px;
+        height: 18px;
+        vertical-align: middle;
+    }
+    .show{
+        opacity: 1;
+        pointer-events: auto;
+        animation: pop-up 0.2s;
+    }
+    .show-card{
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    @keyframes pop-up {
+      0% {
+        left:  120px;
+      }
+      100% {
+        left: 138px;
+      }
+  }
+    .card-img{
+        display: block;
+        width: 300px;
+        height: 150px;
+        background-color: wheat;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .card-title{
+        margin-top: 24px;
+        font-size: 18px;
+        line-height: 18px;
+        cursor: pointer;
+        display: inline-block;
+        color: #000000;
+        text-decoration: none;
+    }
+    .card-wrapper{
+        display: inline-block;
+        margin-right: 50px;
+        margin-bottom: 50px;
+    }
+    .card-wrapper:nth-child(3){
+        margin-right: 0;
+    }
+    .card-title:hover {
+        color: #FF5C00;
+        text-decoration: none;
+    }
+    .card-desc {
+        font-size: 14px;
+        color: rgba(0,0,0,.5);
+        margin: 0;
+        margin-top: 12px;
+
+    }
+    .card-img {
+        overflow: hidden;
+        transition: all .2s
+    }
+    .card-img i{
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-top: 50%;
+        transition: all .2s
+    }
+    .card-img:hover i{
+        transform: scale(1.1);
+        transition: all .2s
+    }
+    .card-img1 {
+        background-image: url('./img/1.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .card-img2 {
+        background-image: url('./img/2.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .card-img3 {
+        background-image: url('./img/3.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .card-img4 {
+        background-image: url('./img/4.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .card-img5 {
+        background-image: url('./img/5.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+  .footer{
+    border-top: 1px solid rgba(196, 196, 196, 0.5);
+    font-size: 14px;
+    line-height: 17px;
+    padding: 14px 0;
+    color: #C4C4C4
+  }
+  @media (max-width: 1024px){
+    .content-header{
+        width: 100%;
+    }
+    .header{
+        height: 398px;
+    }
+    .banner{
+        background-image: none;
+        height: 398px;
+    }
+    .banner-title{
+        margin: 74px 0 18px;
+        font-size: 24px;    
+        line-height: 36px   
+    }
+    .banner-contact {
+        margin-top: 50px;
+    }
+    .content{
+        width: 100%;
+    }
+    .banner-left{
+        padding-left: 25px
+    }
+    .show-card{
+        display: flex;
+        flex-wrap: wrap;
+        width: 650px;
+        margin: 0 auto;
+        margin-top: 24px;
+    }
+    .banner-desc{
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .card-wrapper:nth-child(2n){
+        margin-right: 0;
+    }
+    .card-wrapper:nth-child(3){
+        margin-right: 50px;
+    }
+    .card-wrapper{
+        margin-right: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .card-wrapper img{
+        width: 300px;
+    }
+    .card-img:hover i{
+        transform: scale(1);
+        transition: all .2s
+    }
+    .footer{
+        width: 650px;
+        margin: 0 auto;
+    }
+  }
+  @media(max-width: 680px){
+    .card-title ,.card-desc {
+        text-align: left;
+    }
+    .show-card{
+        padding-left: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .card-img:hover i{
+        transform: scale(1);
+        transition: all .2s
+    }
+    .card-wrapper{
+        flex: none;
+        margin-right: 0;
+    }
+    .card-wrapper:nth-child(3){
+        margin-right: 0;
+    }
+    .footer{
+        max-width: 300px;
+    }
+  }
+</style>
+<body>
+    <div class="header">
+        <div class="content-header">
+            <div class="banner">
+                <div class="banner-left">
+                    <div class="logo-wrapper">
+                        <img src="./img/logo.svg" alt="charile" class="banner-logo">
+                        Charlie Liu
+                    </div>
+                    <div class="banner-title">
+                        面对平凡 <br>需要保持优雅和想象力
+                    </div>
+                    <div class="banner-desc">
+                        当前位于中国武汉，作为 <a href="https://www.geetest.com/" target="_blank">Geetest</a> 的体验设计师。
+                    </div>
+                    <div class="banner-contact" id="copy">
+                        <div class="btn"><img src="./img/wechat.svg" alt="wechat">WeChat</div>
+                        <input type="text" value="CHARLIE0105" style="opacity: 0;" id="wechart">
+                        <div class="copy-box" id="copy-icon"> 
+                            <img src="./img/copy.svg" alt="copy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="show-card">
+            <div class="card-wrapper">
+                <a href="https://dribbble.com/Charlie_Liu" target="_blank" class="card-img">
+                    <i class="card-img1"></i>
+                </a>
+                <a href="https://dribbble.com/Charlie_Liu" target="_blank" class="card-title">Dribbble</a>
+                <p class="card-desc">偏创意设计，工作灵感聚集地 </p>
+            </div>
+            <div class="card-wrapper">
+                <a href="https://www.zcool.com.cn/work/ZNDQwNDYxNDA=.html" target="_blank" class="card-img"> 
+                    <i class="card-img2"></i>
+                </a>
+                <a href="https://www.zcool.com.cn/work/ZNDQwNDYxNDA=.html" target="_blank" class="card-title">ZCOOL 站酷</a>
+                <p class="card-desc">偏产品逻辑，项目展示的平台 </p>
+            </div>
+            <div class="card-wrapper">
+                <a href="https://geetest.design/article" target="_blank" class="card-img">  <i class="card-img3"></i></a>
+                <a  href="https://geetest.design/article" target="_blank" class="card-title">G - Design 设计团队</a>
+                <p class="card-desc">我的团队，极验设计用户体验中心</p>
+            </div>
+            <div class="card-wrapper">
+                <a href="https://www.behance.net/Liuchang_Charlie" target="_blank" class="card-img"> <i class="card-img4"></i></a>
+                <a href="https://www.behance.net/Liuchang_Charlie" target="_blank" class="card-title">插画</a>
+                <p class="card-desc">保持平静和思考的一种方式，不定期更新  </p>
+            </div>
+            <div class="card-wrapper">
+                <a href="https://unsplash.com/@charlieliu" target="_blank" class="card-img"> <i class="card-img5"></i></a>
+                <a href="https://unsplash.com/@charlieliu" target="_blank" class="card-title">摄影</a>
+                <p class="card-desc">记录生活的个人爱好</p>
+            </div>
+        </div>
+        <div class="footer">
+            © 2020 Charlie Liu All rights reserved
+        </div>
+    </div>
+</body>
+</html>
+<script>
+     document.getElementById('copy').addEventListener('click', function(){
+        const activeValueSpan = document.getElementById('wechart');
+        const copyIcon =  document.getElementById('copy-icon');
+        activeValueSpan.select();
+        let len =  copyIcon.classList;
+        try {
+            document.execCommand('copy');
+            copyIcon.classList.add('show')
+        } catch (error) {
+            copyIcon.style.display = 'none'
+        }
+        setTimeout(() => {
+            copyIcon.classList.remove('show')
+        }, 1000);
+     })
+    
+</script>
